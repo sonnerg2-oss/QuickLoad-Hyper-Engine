@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<style>
+  body { font: 13px system-ui, sans-serif; width: 350px; margin: 0; padding: 14px; background: #0f172a; color: #f8fafc; }
+  h1 { font-size: 15px; margin: 0 0 4px; font-weight: 700; color: #38bdf8; }
+  .badge { background: #0284c7; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: bold; }
+  h2 { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: #94a3b8; margin: 14px 0 4px; }
+  label { display: flex; gap: 8px; align-items: flex-start; margin: 8px 0; cursor: pointer; }
+  input[type=checkbox] { margin-top: 2px; accent-color: #0284c7; }
+  select { background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; padding: 2px 4px; }
+  small { color: #64748b; display: block; font-size: 11px; margin-top: 1px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px; }
+  .card { background: #1e293b; border-radius: 8px; padding: 10px; }
+  .num { font-size: 20px; font-weight: 700; color: #38bdf8; line-height: 1.1; }
+  .lbl { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+  .cmp { background: #1e293b; border-radius: 8px; padding: 10px; margin-top: 8px; font-size: 12px; }
+  .msg { background: linear-gradient(135deg,#0c4a6e,#1e293b); border-radius: 8px; padding: 10px; margin-top: 10px; font-size: 12.5px; }
+  .row { display: flex; justify-content: space-between; margin: 3px 0; }
+  .good { color: #4ade80; font-weight: 600; }
+  .status { background: rgba(56,189,248,.1); border: 1px solid rgba(56,189,248,.3); padding: 8px; border-radius: 6px; font-size: 11px; color: #38bdf8; margin-top: 10px; }
+  .status.warn { background: rgba(251,191,36,.1); border-color: rgba(251,191,36,.35); color: #fbbf24; }
+  .foot { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; font-size: 11px; color: #64748b; gap: 6px; }
+  button { background: none; border: 1px solid #334155; color: #94a3b8; border-radius: 4px; padding: 3px 8px; cursor: pointer; font-size: 11px; }
+  button:hover { color: #f8fafc; border-color: #64748b; }
+</style>
+</head>
+<body>
+  <h1>QuickLoad <span class="badge">V3.4</span></h1>
+  <div class="msg" id="msg"></div>
+
+  <h2>Sekmeler</h2>
+  <div class="grid">
+    <div class="card"><div class="num" id="sOpen">0</div><div class="lbl">Açık sekme</div></div>
+    <div class="card"><div class="num" id="sSleep">0</div><div class="lbl">Uyuyan sekme</div></div>
+    <div class="card"><div class="num" id="sRam">-</div><div class="lbl">RAM kullanımı</div></div>
+    <div class="card"><div class="num" id="sEnergy">0</div><div class="lbl">Tahmini enerji tasarrufu</div></div>
+  </div>
+  <div class="cmp" id="tabCmp"></div>
+
+  <h2>Bu eklenti ne yaptı?</h2>
+  <div class="grid">
+    <div class="card"><div class="num" id="sPrefetch">0</div><div class="lbl">Ön yüklenen sayfa açıldı</div></div>
+    <div class="card"><div class="num" id="sBlocked">0</div><div class="lbl">Engellenen izleyici isteği</div></div>
+  </div>
+  <div class="cmp" id="cmp"></div>
+  <h2>İçerik ve video yükleme</h2>
+  <div class="cmp" id="loadBox"></div>
+
+  <h2>En çok erişilen siteler</h2>
+  <div class="cmp" id="top"></div>
+
+  <h2>Ayarlar</h2>
+  <label><input type="checkbox" id="autoSleep"><span>Boştaki sekmeleri uyut<small>Aktif, sabitli, ses çalan, yazı yazılmış ve izin listesindeki sekmelere dokunmaz</small></span></label>
+  <label><span>Mod:&nbsp;<select id="mode"><option value="temkinli">Temkinli</option><option value="dengeli">Dengeli</option><option value="agresif">Agresif</option></select></span></label>
+  <label><input type="checkbox" id="speculation"><span>Akıllı ön yükleme (prefetch)</span></label>
+  <label><input type="checkbox" id="smartLoad"><span>Akıllı içerik ve video yükleme<small>Ekran dışı iframe, görsel ve videoyu erteler; yaklaşınca öne alır</small></span></label>
+  <label><input type="checkbox" id="blockTrackers"><span>Reklam &amp; izleyici engelleyici</span></label>
+  <label><input type="checkbox" id="reminders"><span>Hatırlatıcı bildirimler<small>Saatte bir kısa, eğlenceli durum mesajı</small></span></label>
+
+  <div class="status" id="status">Durum kontrol ediliyor…</div>
+  <div class="foot"><span id="since"></span><span><button id="debug">Debug paneli</button> <button id="reset">Sıfırla</button></span></div>
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

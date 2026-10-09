@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>QuickLoad Debug</title>
+<style>
+  body { font: 13px system-ui, sans-serif; margin: 0; padding: 18px; background: #0f172a; color: #f8fafc; }
+  h1 { font-size: 17px; color: #38bdf8; margin: 0 0 10px; }
+  .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
+  button, .btn { background: #1e293b; border: 1px solid #334155; color: #e2e8f0; border-radius: 6px; padding: 5px 10px; cursor: pointer; font-size: 12px; }
+  button:hover, .btn:hover { border-color: #38bdf8; }
+  button.on { background: #0284c7; border-color: #0284c7; }
+  .cards { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .card { background: #1e293b; border-radius: 8px; padding: 10px 14px; min-width: 110px; }
+  .num { font-size: 20px; font-weight: 700; color: #38bdf8; }
+  .lbl { font-size: 11px; color: #94a3b8; }
+  table { border-collapse: collapse; width: 100%; max-width: 980px; }
+  th, td { text-align: left; padding: 5px 10px; border-bottom: 1px solid #1e293b; font-size: 12px; }
+  th { color: #94a3b8; font-weight: 600; position: sticky; top: 0; background: #0f172a; }
+  pre { background: #020617; padding: 12px; border-radius: 8px; overflow: auto; max-height: 65vh; font-size: 11px; }
+  input[type=text] { background: #1e293b; border: 1px solid #334155; color: #f8fafc; border-radius: 6px; padding: 5px 8px; }
+  .msg { color: #fbbf24; margin-left: 6px; }
+  .hint { color: #64748b; font-size: 11px; margin: 6px 0 14px; }
+</style>
+</head>
+<body>
+  <h1>QuickLoad Hyper-Engine · Debug paneli</h1>
+  <div class="bar">
+    <button id="export">db.json dışa aktar</button>
+    <label class="btn">db.json içe aktar<input type="file" id="import" accept=".json,application/json" hidden></label>
+    <button id="reset">Sıfırla</button>
+    <button id="debugMode">Debug günlüğü: kapalı</button>
+    <span class="msg" id="msg"></span>
+  </div>
+  <div class="cards" id="cards"></div>
+  <div class="bar" id="tabs"></div>
+  <div id="view"></div>
+  <p class="hint">Veriler yalnızca bu cihazda tutulur. Kayıtlar yalnızca hostname ve normalize edilmiş yol içerir; sorgu dizesi, parça ve gizli sekme verisi saklanmaz.</p>
+  <script src="shared.js"></script>
+  <script src="debug.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "schema": 3,
+  "createdAt": 0,
+  "updatedAt": 0,
+  "totals": {
+    "navs": 0, "prefetched": 0, "blocked": 0, "clicks": 0, "lastBlockedTs": 0,
+    "ttfb": {
+      "prefetch": { "n": 0, "sum": 0 },
+      "normal": { "n": 0, "sum": 0 },
+      "holdout": { "n": 0, "sum": 0 }
+    },
+    "origin": { "same": 0, "external": 0, "direct": 0 },
+    "rawProto": {},
+    "perf": {
+      "on": { "n": 0, "lcpN": 0, "lcpSum": 0, "loadSum": 0 },
+      "off": { "n": 0, "lcpN": 0, "lcpSum": 0, "loadSum": 0 }
+    },
+    "loader": {
+      "imgLazy": 0, "iframeLazy": 0, "videoDeferred": 0, "videoPromoted": 0, "preconnect": 0,
+      "historyWarm": 0, "historyHit": 0, "fallbackPrefetch": 0, "cspBlocked": 0
+    }
+  },
+  "protocols": { "h3": 0, "h2": 0, "http/1.1": 0, "other": 0 },
+  "sites": {},
+  "clicks": {},
+  "days": {},
+  "tabs": {
+    "discards": 0, "restores": 0, "restoreTimed": 0, "restoreMs": 0,
+    "discardedHours": 0, "peakOpen": 0,
+    "reasons": { "idle": 0, "maxHot": 0, "mem": 0 },
+    "revisit": { "<1m": 0, "1-5m": 0, "5-15m": 0, "15-45m": 0, "45-120m": 0, ">120m": 0 },
+    "last": { "t": 0, "open": 0, "hot": 0, "sleeping": 0, "mode": "", "skipped": {} }
+  },
+  "memory": [],
+  "index": { "topSites": [], "topClicks": [] }
+}

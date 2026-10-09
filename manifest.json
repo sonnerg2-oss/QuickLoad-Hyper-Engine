@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "QuickLoad Hyper-Engine",
+  "version": "3.4.0",
+  "minimum_chrome_version": "121",
+  "description": "Akıllı ön yükleme, içerik/video yükleme optimizasyonu, izleyici engelleme ve çok sekmeli RAM yönetimi. Ne kazandırdığını ölçüp gösterir.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "alarms",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "tabs",
+    "system.memory",
+    "notifications"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "QuickLoad Hyper-Engine",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "hyper-core.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "trackers",
+        "enabled": false,
+        "path": "rules.json"
+      }
+    ]
+  }
+}
